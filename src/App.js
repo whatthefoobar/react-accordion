@@ -1,15 +1,28 @@
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [selected, setSelected] = useState(null);
+  const toggle = (i) => {
+    // eslint-disable-next-line
+    if (selected == i) {
+      return setSelected(null);
+    }
+    setSelected(i);
+  };
   return (
     <div className="wrapper">
+      <h3 className="faq-title">FAQ</h3>
       <div className="accordion">
         {data.map((item, i) => (
           <div className="item" key={i}>
-            <div className="title">
+            <div className="title" onClick={() => toggle(i)}>
               <h2>{item.question}</h2>
+              <span className="button">{selected === i ? '-' : '+'}</span>
             </div>
-            <div className="content">{item.answer}</div>
+            <div className={selected === i ? 'content show' : 'content'}>
+              {item.answer}
+            </div>
           </div>
         ))}
       </div>

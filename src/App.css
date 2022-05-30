@@ -1,7 +1,43 @@
 .wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
+}
+.faq-title {
+  font-size: 32px;
+  color: #4a332d;
+}
+.accordion {
+  width: 600px;
+}
+.item {
+  background-color: #d0c7c2;
+  margin-bottom: 5px;
+  padding: 10px 20px;
+}
+.title {
+  color: #4a332d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.title .button {
+  font-weight: 600;
+  font-size: 20px;
+}
+.content {
+  color: #6c4a3f;
+  font-size: 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.7s cubic-bezier(0, 1, 0, 1);
+}
+.content.show {
+  height: auto;
+  max-height: 999px;
+  transition: all 0.7s cubic-bezier(1, 0, 1, 0);
 }
